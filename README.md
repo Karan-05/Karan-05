@@ -17,19 +17,23 @@
 ## Reliability patterns I reach for
 ```mermaid
 flowchart LR
-  subgraph Control Plane
-    API[API / FastAPI] --> ORCH[Orchestrator]
-    ORCH -->|idempotency key| Q[(Work Queue)]
-    ORCH --> LOGS[(Audit Logs)]
-    LOGS --> ALERTS[CI + Alerts]
-  end
-  Q --> W[Workers]
-  W --> DB[(Postgres)]
-  W --> CACHE[(Redis)]
-  W --> DLQ[(Dead Letter Queue)]
-  DLQ --> REC[Reconciler Job]
-  REC --> DB
-  Q --> METRICS[Latency + p95 dashboards]
+    subgraph Ingress
+        API[FastAPI/REST] --> ORCH[Orchestrator]
+        ORCH -->|idempotency| Q[(Queue)]
+        ORCH --> AUDIT[(Audit + Evidence)]
+    end
+
+    Q --> WORKER[Async Workers]
+    WORKER --> STORE[(Postgres/SQL)]
+    WORKER --> CACHE[(Redis Cache)]
+    WORKER --> DLQ[(Dead Letter Queue)]
+
+    DLQ --> REC[Reconciler]
+    REC --> STORE
+
+    AUDIT --> CI[Regression Gates]
+    STORE --> METRICS[Latency + p95 dashboards]
+    CACHE --> METRICS
 ```
 
 ## Tech
