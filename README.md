@@ -15,26 +15,12 @@
 - **Cloud automation agent** — [Cloud_Automation_Agent-](https://github.com/Karan-05/Cloud_Automation_Agent-). Electron + Django + browser automation with audit logs, plan review, and evidence capture.
 
 ## Reliability patterns I reach for
-```mermaid
-flowchart LR
-    subgraph Ingress
-        API[FastAPI/REST] --> ORCH[Orchestrator]
-        ORCH -->|idempotency| Q[(Queue)]
-        ORCH --> AUDIT[(Audit + Evidence)]
-    end
-
-    Q --> WORKER[Async Workers]
-    WORKER --> STORE[(Postgres/SQL)]
-    WORKER --> CACHE[(Redis Cache)]
-    WORKER --> DLQ[(Dead Letter Queue)]
-
-    DLQ --> REC[Reconciler]
-    REC --> STORE
-
-    AUDIT --> CI[Regression Gates]
-    STORE --> METRICS[Latency + p95 dashboards]
-    CACHE --> METRICS
-```
+<p align="center">
+  <picture>
+    <source srcset="assets/reliability.svg" type="image/svg+xml">
+    <img src="assets/reliability.png" width="1000" alt="Reliability patterns diagram" />
+  </picture>
+</p>
 
 ## Tech
 **Languages**: Python, Java (Spring), TypeScript, C++17/20, Go, SQL, Bash  

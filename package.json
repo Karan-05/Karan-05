@@ -1,0 +1,7 @@
+{
+  "name": "karan-profile-diagrams",
+  "private": true,
+  "scripts": {
+    "render:diagrams": "npx -y @mermaid-js/mermaid-cli -i diagrams/reliability.mmd -o assets/reliability.svg --scale 2 --backgroundColor transparent && npx -y @mermaid-js/mermaid-cli -i diagrams/reliability.mmd -o assets/reliability.png --scale 3 --backgroundColor transparent"
+  }
+}

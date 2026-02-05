@@ -1,0 +1,23 @@
+%%{init: {"flowchart": {"nodeSpacing": 60, "rankSpacing": 70, "padding": 15}, "themeVariables": {"fontSize": "18px", "primaryColor": "#0f172a", "primaryTextColor": "#0f172a"}} }%%
+flowchart LR
+    subgraph Ingress
+        API[FastAPI / REST API]
+        ORCH[Orchestrator / Policy Layer]
+        AUDIT[Audit & Evidence]
+    end
+
+    API --> ORCH
+    ORCH -->|Idempotency keys| Q[(Queue / Stream)]
+    ORCH --> AUDIT
+
+    Q --> WORKERS[Async Workers]
+    WORKERS --> STORE[(Postgres / SQL)]
+    WORKERS --> CACHE[(Redis Cache)]
+    WORKERS --> DLQ[(Dead Letter Queue)]
+
+    DLQ --> REC[Reconciler Jobs]
+    REC --> STORE
+
+    AUDIT --> CI[Regression Gates]
+    STORE --> METRICS[Latency & p95 dashboards]
+    CACHE --> METRICS
