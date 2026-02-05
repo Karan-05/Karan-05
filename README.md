@@ -49,7 +49,7 @@ Reliability is how I ship AI safely — idempotency, retries/backoff, DLQ, recon
 - Interest areas: agentic decomposition, evaluation rigor, retrieval quality, latency/cost trade-offs for LLM + CV workloads.
 
 ## What I’m looking for
-Staff/Senior roles across backend platforms, reliability engineering, or AI systems (NYC hybrid or remote). Let’s collaborate on idempotent, observable, impact-driven systems.
+New Grad roles in AI/ML engineering, agentic AI systems, or backend/platform engineering — including **Founding Engineer (0→1)** opportunities at early-stage startups (NYC hybrid or remote). I love building reliable, observable systems: idempotency, evals, CI, and production-ready deployments.
 
 📫 [ka3527@nyu.edu](mailto:ka3527@nyu.edu) • [LinkedIn](https://linkedin.com/in/karan-allagh) • [Portfolio](https://karan-allagh.vercel.app) • [GitHub](https://github.com/Karan-05)
 
