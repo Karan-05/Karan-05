@@ -23,8 +23,7 @@ Reliability is how I ship AI safely — idempotency, retries/backoff, DLQ, recon
 - **RAG evaluation + latency/cost harness** — [rag-eval-harness](https://github.com/Karan-05/rag-eval-harness). Deterministic dataset loader, caching vector store, async workers, latency/cost dashboards, and CI-ready eval harnesses that drove the 38% cost win. Demo/Docs: repo README.
 - **High-volume analytics UI** — [Portfolio](https://github.com/Karan-05/Portfolio). Full-stack (Next.js + APIs + DB) analytics experience with virtualization, workerized transforms, and instrumentation to keep 60fps at 100k+ rows. Demo/Docs: https://karan-allagh.vercel.app.
 - **Low-latency C++ prototyping** — Samsung/Veach internal (non-public). Near-metal agentic kernels for SIMD batching, pipeline hazard detection, and telemetry to hold p95 ≤ 3.8s. Demo/Docs: available under NDA.
-- **Cloud automation agent** — [Cloud_Automation_Agent-](https://github.com/Karan-05/Cloud_Automation_Agent-). Electron + Django + Orion agent stack that plans, executes, captures evidence, and enforces guardrails for cloud operations. Demo/Docs: repo README (video WIP).
-
+  
 ## Core strength — Distributed Systems & Reliability
 - Bake reliability patterns (idempotency, retries/backoff, DLQ, reconciliation, audit logs) into every agentic or ML system to keep rollouts safe.
 - Reliability is not a phase; it’s the guardrail for AI/ML features before they reach customers.
